@@ -60,6 +60,7 @@ with st.echo():
     wait = WebDriverWait(driver, 30)
     driver.get("https://myco.io/")
     driver.save_screenshot("screenie.png")
+    CLIENT_ID = 'a030a75ec41c15d'
     def upload_image_to_imgur(image_path):
       # Authenticate with Imgur
       im = pyimgur.Imgur(CLIENT_ID)
