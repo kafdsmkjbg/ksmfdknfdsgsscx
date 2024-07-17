@@ -57,5 +57,6 @@ with st.echo():
     driver = get_driver()
     driver.set_window_size(1920, 1080)
     wait = WebDriverWait(driver, 30)
-    
+    driver.get("https://myco.io/")
+    driver.save_screenshot("screenie.png")
 
