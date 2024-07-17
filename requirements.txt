@@ -3,4 +3,5 @@ seleniumbase
 webdriver-manager
 urlextract
 tempmail-python
-dropbox
+requests
+pyimgur
