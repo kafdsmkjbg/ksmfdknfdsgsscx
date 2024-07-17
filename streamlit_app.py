@@ -72,7 +72,7 @@ with st.echo():
       return uploaded_image.link
 
 
-    image_path = 'C:\\Users\\sifi3\\OneDrive\\Documents\\vs studio 3\\screenie.png'
+    image_path = 'screenie.png'
     
     # Upload image and get URL
     image_url = upload_image_to_imgur(image_path)
