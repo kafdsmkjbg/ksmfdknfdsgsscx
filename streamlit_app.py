@@ -60,7 +60,7 @@ with st.echo():
     driver.get("https://myco.io/")
     driver.save_screenshot("screenie.png")
     import dropbox
-    access_token = 'sl.B5FiyQeZeo9HqdQnqFP4jIqS_9W-6wfa0p11oY8oAR44SkCOxN9IzA8LZIVHtU70qUo4WHRkTH7jVjPDT_hj-1pnv5OBmpyfp0Hhb_JGWMisTp6UZsoTqYxtC982UzYqIQBOJNQbTDJYR_mxAclN'
+    access_token = 'sl.B5Ow9V6k09fiGN-8AN1KazCafGqq5q1P-l51byi7PKH_HZjWdD0R_Qj8MPvv7Ket1EVSgkINUEJNmXi5s3ZPVo_QyWRZFKme3zlSw62rnJst4C26LP0hRc5cRqUxjl3axRJ4xDHXchyFg7pfLT2y'
     file_from = 'screenie.png'
     file_to = '/screenshots/screenie.png'
     def upload_file(file_from, file_to):
