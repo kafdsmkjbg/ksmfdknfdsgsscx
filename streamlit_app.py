@@ -59,12 +59,4 @@ with st.echo():
     wait = WebDriverWait(driver, 30)
     driver.get("https://myco.io/")
     driver.save_screenshot("screenie.png")
-    import dropbox
-    access_token = 'sl.B5Ow9V6k09fiGN-8AN1KazCafGqq5q1P-l51byi7PKH_HZjWdD0R_Qj8MPvv7Ket1EVSgkINUEJNmXi5s3ZPVo_QyWRZFKme3zlSw62rnJst4C26LP0hRc5cRqUxjl3axRJ4xDHXchyFg7pfLT2y'
-    file_from = 'screenie.png'
-    file_to = '/screenshots/screenie.png'
-    def upload_file(file_from, file_to):
-        dbx = dropbox.Dropbox(access_token)
-        f = open(file_from, 'rb')
-        dbx.files_upload(f.read(), file_to)
-    upload_file(file_from,file_to)
+    
