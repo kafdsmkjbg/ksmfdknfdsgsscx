@@ -14,6 +14,10 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
 
+
+def random_char(y):
+  return ''.join(random.choice(string.ascii_letters) for x in range(y))
+extractor = URLExtract()
 """
 ## Web scraping on Streamlit Cloud with Selenium
 
@@ -46,7 +50,10 @@ with st.echo():
     options.add_experimental_option("detach", True)
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-    
+
+    name = random_char(5)
+    name_2 = random_char(5)
+    email = EMail()
     driver = get_driver()
     driver.set_window_size(1920, 1080)
     wait = WebDriverWait(driver, 30)
