@@ -83,5 +83,5 @@ with st.echo():
     time.sleep(8)
     driver.get("https://myco.io/videohome?v=64e459e5a9addef12597ac3a")
     wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div/div/div[1]/div/div[1]/div/video-js/button'))).click()
-
+    print("done")
 
