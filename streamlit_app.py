@@ -13,6 +13,7 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
+import pyimgur
 
 
 def random_char(y):
@@ -59,4 +60,21 @@ with st.echo():
     wait = WebDriverWait(driver, 30)
     driver.get("https://myco.io/")
     driver.save_screenshot("screenie.png")
+    def upload_image_to_imgur(image_path):
+      # Authenticate with Imgur
+      im = pyimgur.Imgur(CLIENT_ID)
+  
+      # Upload image
+      uploaded_image = im.upload_image(image_path, title="Uploaded with PyImgur")
+  
+      # Return the direct link to the uploaded image
+      return uploaded_image.link
+
+
+    image_path = 'C:\\Users\\sifi3\\OneDrive\\Documents\\vs studio 3\\screenie.png'
     
+    # Upload image and get URL
+    image_url = upload_image_to_imgur(image_path)
+    
+    # Print the URL
+    print(f"Uploaded image URL: {image_url}")
