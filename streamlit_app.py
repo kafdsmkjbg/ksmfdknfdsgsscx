@@ -72,7 +72,7 @@ with st.echo():
     )
     
     # Upload an image
-    upload_result = cloudinary.uploader.upload('C:\\Users\\sifi3\\OneDrive\\Documents\\vs studio 3\\screenie.png')
+    upload_result = cloudinary.uploader.upload('screenie.png')
     print(upload_result["secure_url"])
 
 
