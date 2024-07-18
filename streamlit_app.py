@@ -13,7 +13,6 @@ from selenium.webdriver.common.action_chains import ActionChains
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.chrome.options import Options
-import pyimgur
 
 
 def random_char(y):
@@ -60,22 +59,20 @@ with st.echo():
     wait = WebDriverWait(driver, 30)
     driver.get("https://myco.io/")
     driver.save_screenshot("screenie.png")
-    CLIENT_ID = 'a030a75ec41c15d'
-    def upload_image_to_imgur(image_path):
-      # Authenticate with Imgur
-      im = pyimgur.Imgur(CLIENT_ID)
-  
-      # Upload image
-      uploaded_image = im.upload_image(image_path, title="Uploaded with PyImgur")
-  
-      # Return the direct link to the uploaded image
-      return uploaded_image.link
+    import cloudinary
+    import cloudinary.uploader
+    from cloudinary.utils import cloudinary_url
+    
+    # Configuration
+    cloudinary.config(
+        cloud_name = "diycxqn01",
+        api_key = "437141623253491",
+        api_secret = '5HqL1mhMJiA-FJQ81kiWETmu0mM', # Click 'View Credentials' below to copy your API secret
+        secure=True
+    )
+    
+    # Upload an image
+    upload_result = cloudinary.uploader.upload('C:\\Users\\sifi3\\OneDrive\\Documents\\vs studio 3\\screenie.png')
+    print(upload_result["secure_url"])
 
 
-    image_path = 'screenie.png'
-    
-    # Upload image and get URL
-    image_url = upload_image_to_imgur(image_path)
-    
-    # Print the URL
-    print(f"Uploaded image URL: {image_url}")
