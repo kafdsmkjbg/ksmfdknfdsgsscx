@@ -30,6 +30,8 @@ with st.echo():
     from selenium import webdriver
     from selenium.webdriver.common.keys import Keys
     from selenium.webdriver.chrome.options import Options
+    def random_char(y):
+        return ''.join(random.choice(string.ascii_letters) for x in range(y))
 
     @st.cache_resource
     def get_driver():
