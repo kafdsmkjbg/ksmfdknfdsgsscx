@@ -50,29 +50,42 @@ with st.echo():
     options.add_experimental_option("detach", True)
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
-
-    name = random_char(5)
-    name_2 = random_char(5)
-    email = EMail()
-    driver = get_driver()
-    driver.set_window_size(1920, 1080)
-    wait = WebDriverWait(driver, 30)
-    driver.get("https://myco.io/")
-    driver.save_screenshot("screenie.png")
-    import cloudinary
-    import cloudinary.uploader
-    from cloudinary.utils import cloudinary_url
-    
-    # Configuration
-    cloudinary.config(
-        cloud_name = "diycxqn01",
-        api_key = "437141623253491",
-        api_secret = '5HqL1mhMJiA-FJQ81kiWETmu0mM', # Click 'View Credentials' below to copy your API secret
-        secure=True
-    )
-    
-    # Upload an image
-    upload_result = cloudinary.uploader.upload('screenie.png')
-    print(upload_result["secure_url"])
+    i = 0
+    while i < 1:
+      name = random_char(5)
+      name_2 = random_char(5)
+      email = EMail()
+      driver = get_driver()
+      driver.set_window_size(1920, 1080)
+      wait = WebDriverWait(driver, 30)
+      driver.get("https://myco.io/")
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div[1]/div/div[2]/span'))).click()
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="firstName"]'))).send_keys(name)
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="lastName"]'))).send_keys(name_2)
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="email"]'))).send_keys(email.address)
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="userName"]'))).send_keys(name)
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="password"]'))).send_keys("zxcasdqwe12!A")
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="confirmPassword"]'))).send_keys("zxcasdqwe12!A")
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="link-checkbox"]'))).click()
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="register-btn"]'))).click()
+      time.sleep(5)
+      msg = email.wait_for_message()
+      myCode = msg.body
+      link = (re.findall(r'(https?://auth.myco.io?.*\?.*?)\s', myCode))[0]
+      link2 = extractor.find_urls(link)[0]
+      driver.get(link2)
+      #time.sleep(8)
+      driver.get("https://myco.io/")
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
+      wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="root"]/div[1]/div/form/div[2]/div[2]/input'))).send_keys(name)
+      wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div[1]/div/form/div[2]/div[3]/input'))).send_keys("zxcasdqwe12!A")
+      wait.until(EC.element_to_be_clickable((By.XPATH,'//*[@id="root"]/div[1]/div/form/div[2]/div[4]/button'))).click()
+      time.sleep(8)
+      driver.get("https://myco.io/videohome?v=64e459e5a9addef12597ac3a")
+      wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[1]/div[2]/div/div/div[1]/div/div[1]/div/video-js/button'))).click()
+      print("done")
+      time.sleep(3650)
+      driver.quit()
 
 
