@@ -55,6 +55,5 @@ with st.echo():
     driver = get_driver()
     wait = WebDriverWait(driver, 10)
     driver.get("https://myco.io/")
-    wait.until(EC.element_to_be_clickable((By.XPATH, '/html/body/div[2]/div[2]/div[1]/div[2]/div[2]/button[1]'))).click()
     wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
     
