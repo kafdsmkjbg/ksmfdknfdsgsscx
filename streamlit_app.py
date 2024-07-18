@@ -46,7 +46,7 @@ with st.echo():
 
     options = Options()
     options.add_argument("--disable-gpu")
-    options.add_argument("--headless")
+    #options.add_argument("--headless")
     options.add_experimental_option("detach", True)
     options.add_argument('--no-sandbox')
     options.add_argument('--disable-dev-shm-usage')
@@ -57,7 +57,7 @@ with st.echo():
       email = EMail()
       driver = get_driver()
       driver.set_window_size(1920, 1080)
-      wait = WebDriverWait(driver, 30)
+      wait = WebDriverWait(driver, 100)
       driver.get("https://myco.io/")
       time.sleep(5)
       wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
