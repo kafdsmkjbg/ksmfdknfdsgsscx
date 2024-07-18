@@ -59,6 +59,7 @@ with st.echo():
       driver.set_window_size(1920, 1080)
       wait = WebDriverWait(driver, 30)
       driver.get("https://myco.io/")
+      time.sleep(5)
       wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/nav/div/div[3]/button'))).click()
       wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="root"]/div[1]/div/div[2]/span'))).click()
       wait.until(EC.element_to_be_clickable((By.XPATH, '//*[@id="firstName"]'))).send_keys(name)
