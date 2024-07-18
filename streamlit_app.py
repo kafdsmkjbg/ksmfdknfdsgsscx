@@ -55,5 +55,5 @@ with st.echo():
     driver = get_driver()
     wait = WebDriverWait(driver, 10)
     driver.get("https://myco.io/")
-    wait.until(EC.element_to_be_clickable((By.XPATH, '//span[contains(.,'Sign In')]'))).click()
+    wait.until(EC.element_to_be_clickable((By.XPATH, "//span[contains(.,'Sign In')]"))).click()
     
