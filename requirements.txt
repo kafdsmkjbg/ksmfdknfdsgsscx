@@ -4,4 +4,4 @@ webdriver-manager
 urlextract
 tempmail-python
 requests
-pyimgur
+cloudinary
