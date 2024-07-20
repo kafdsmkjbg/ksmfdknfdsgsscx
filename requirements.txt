@@ -1,7 +1,1 @@
 streamlit
-seleniumbase
-webdriver-manager
-urlextract
-tempmail-python
-requests
-cloudinary
